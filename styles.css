@@ -736,3 +736,41 @@ body {
     padding: 20px;
   }
 }
+
+
+/* Pagination Styling */
+.pagination-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 16px;
+  margin-top: 28px;
+}
+
+.pagination-btn {
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  color: var(--text-main);
+  padding: 8px 18px;
+  border-radius: var(--radius-sm);
+  font-weight: 600;
+  font-size: 0.9rem;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.pagination-btn:hover:not(:disabled) {
+  background: var(--primary);
+  border-color: var(--primary);
+  color: #ffffff;
+}
+
+.pagination-btn:disabled {
+  opacity: 0.4;
+  cursor: not-allowed;
+}
+
+.pagination-info {
+  font-size: 0.9rem;
+  color: var(--text-muted);
+}
