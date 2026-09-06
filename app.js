@@ -125,6 +125,10 @@ document.addEventListener('DOMContentLoaded', () => {
       pRatio = 0.40;
       cRatio = 0.20;
       fRatio = 0.40;
+    } else if (activePreset === 'high-carbs') {
+      pRatio = 0.20;
+      cRatio = 0.60;
+      fRatio = 0.20;
     } else if (activePreset === 'high-protein') {
       pRatio = 0.40;
       cRatio = 0.35;
@@ -176,7 +180,11 @@ document.addEventListener('DOMContentLoaded', () => {
     const q = query.toLowerCase().trim();
     foodResultsContainer.innerHTML = '';
 
-    const filtered = FOOD_DATABASE.filter(item => 
+    const dataSource = (typeof USDA_FOOD_DATABASE !== 'undefined' && USDA_FOOD_DATABASE.length > 0) 
+      ? USDA_FOOD_DATABASE 
+      : FOOD_DATABASE;
+
+    const filtered = dataSource.filter(item => 
       item.name.toLowerCase().includes(q) || item.category.toLowerCase().includes(q)
     );
 

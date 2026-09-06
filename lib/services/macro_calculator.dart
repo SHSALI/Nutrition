@@ -66,6 +66,8 @@ class MacroCalculator {
       pRatio = 0.35; cRatio = 0.50; fRatio = 0.15;
     } else if (preset == 'low-carbs') {
       pRatio = 0.40; cRatio = 0.20; fRatio = 0.40;
+    } else if (preset == 'high-carbs') {
+      pRatio = 0.20; cRatio = 0.60; fRatio = 0.20;
     } else if (preset == 'high-protein') {
       pRatio = 0.40; cRatio = 0.35; fRatio = 0.25;
     }

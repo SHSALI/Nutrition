@@ -199,6 +199,7 @@ class _CalculatorScreenState extends State<CalculatorScreen> {
                   _buildPresetChip('balanced', '⚖️ Balanced'),
                   _buildPresetChip('low-fat', '🥑 Low Fat'),
                   _buildPresetChip('low-carbs', '🌾 Low Carbs'),
+                  _buildPresetChip('high-carbs', '🥔 High Carbs'),
                   _buildPresetChip('high-protein', '🍗 High Protein'),
                 ],
               ),
