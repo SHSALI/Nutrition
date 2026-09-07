@@ -774,3 +774,299 @@ body {
   font-size: 0.9rem;
   color: var(--text-muted);
 }
+
+
+/* ================================================================
+   FOOD DATABASE – Cards & Grid  (appended by NutriFit setup)
+   ================================================================ */
+
+.food-results-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.2rem;
+  margin-top: 1.5rem;
+}
+
+@media (max-width: 1024px) { .food-results-grid { grid-template-columns: repeat(2, 1fr); } }
+@media (max-width: 640px)  { .food-results-grid { grid-template-columns: 1fr; } }
+
+.food-card {
+  background: rgba(255,255,255,0.04);
+  border: 1px solid rgba(255,255,255,0.10);
+  border-radius: 1rem;
+  padding: 1.1rem 1.2rem 1rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+  transition: transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s;
+}
+.food-card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 8px 28px rgba(0,0,0,0.35);
+  border-color: rgba(99,102,241,0.45);
+}
+
+.food-card-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 0.5rem;
+}
+
+.food-name {
+  font-weight: 700;
+  font-size: 0.95rem;
+  color: #e2e8f0;
+  line-height: 1.35;
+}
+
+.cat-badge {
+  font-size: 0.68rem;
+  padding: 0.2rem 0.55rem;
+  border-radius: 999px;
+  background: rgba(99,102,241,0.20);
+  color: #a5b4fc;
+  white-space: nowrap;
+  flex-shrink: 0;
+}
+
+.food-serving {
+  font-size: 0.78rem;
+  color: #94a3b8;
+}
+
+.food-macros {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 0.45rem;
+}
+
+.macro-pill {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 0.4rem 0.2rem;
+  border-radius: 0.55rem;
+  min-width: 0;
+  background: rgba(255,255,255,0.06);
+  border: 1px solid rgba(255,255,255,0.08);
+  text-align: center;
+}
+.mpval  { font-size: 0.85rem; font-weight: 700; color: #f1f5f9; white-space: nowrap; }
+.mplabel{ font-size: 0.62rem; color: #64748b; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; max-width: 100%; }
+
+.macro-pill {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 0.3rem 0.55rem;
+  border-radius: 0.55rem;
+  min-width: 52px;
+  background: rgba(255,255,255,0.06);
+  border: 1px solid rgba(255,255,255,0.08);
+}
+.mpval  { font-size: 0.85rem; font-weight: 700; color: #f1f5f9; }
+.mplabel{ font-size: 0.65rem; color: #64748b; }
+
+.calories-pill { background: rgba(251,191,36,0.12); border-color: rgba(251,191,36,0.25); }
+.calories-pill .mpval { color: #fbbf24; }
+.protein-pill  { background: rgba(52,211,153,0.12); border-color: rgba(52,211,153,0.25); }
+.protein-pill  .mpval { color: #34d399; }
+.carbs-pill    { background: rgba(96,165,250,0.12); border-color: rgba(96,165,250,0.25); }
+.carbs-pill    .mpval { color: #60a5fa; }
+.fat-pill      { background: rgba(251,146,60,0.12); border-color: rgba(251,146,60,0.25); }
+.fat-pill      .mpval { color: #fb923c; }
+.sugar-pill    { background: rgba(244,114,182,0.12); border-color: rgba(244,114,182,0.25); }
+.sugar-pill    .mpval { color: #f472b6; }
+.sat-pill      { background: rgba(167,139,250,0.12); border-color: rgba(167,139,250,0.25); }
+.sat-pill      .mpval { color: #a78bfa; }
+
+.micro-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.3rem;
+  margin-top: 0.2rem;
+}
+.micro-tag {
+  font-size: 0.70rem;
+  color: #94a3b8;
+  background: rgba(255,255,255,0.05);
+  padding: 0.15rem 0.45rem;
+  border-radius: 999px;
+  border: 1px solid rgba(255,255,255,0.07);
+}
+.micro-tag b { color: #cbd5e1; }
+
+.no-results {
+  grid-column: 1/-1;
+  text-align: center;
+  padding: 3rem 0;
+  color: #64748b;
+  font-size: 1rem;
+}
+
+/* ================================================================
+   PAGINATION
+   ================================================================ */
+
+.pagination-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+  margin-top: 1.5rem;
+  flex-wrap: wrap;
+}
+
+.page-btn {
+  padding: 0.55rem 1.2rem;
+  border-radius: 0.6rem;
+  border: 1px solid rgba(255,255,255,0.15);
+  background: rgba(255,255,255,0.07);
+  color: #e2e8f0;
+  font-size: 0.9rem;
+  cursor: pointer;
+  transition: background 0.18s, border-color 0.18s;
+}
+.page-btn:hover:not(:disabled) {
+  background: rgba(99,102,241,0.25);
+  border-color: rgba(99,102,241,0.5);
+}
+.page-btn.disabled, .page-btn:disabled {
+  opacity: 0.35;
+  cursor: default;
+}
+
+.page-info {
+  font-size: 0.88rem;
+  color: #94a3b8;
+  white-space: nowrap;
+}
+
+/* ================================================================
+   AI MEAL PLAN – Cards
+   ================================================================ */
+
+.meals-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 1.3rem;
+  margin-top: 1rem;
+}
+
+.meal-card {
+  background: rgba(255,255,255,0.05);
+  border: 1px solid rgba(255,255,255,0.10);
+  border-radius: 1rem;
+  padding: 1.3rem 1.2rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.55rem;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+.meal-card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 8px 28px rgba(0,0,0,0.30);
+}
+
+.meal-type-label {
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: #a78bfa;
+}
+
+.meal-emoji {
+  font-size: 2.2rem;
+  line-height: 1;
+}
+
+.meal-name {
+  font-size: 1rem;
+  font-weight: 700;
+  color: #e2e8f0;
+  line-height: 1.3;
+}
+
+.meal-desc {
+  font-size: 0.82rem;
+  color: #94a3b8;
+  line-height: 1.5;
+}
+
+.meal-macros-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem;
+  margin-top: 0.3rem;
+}
+
+.mm-chip {
+  font-size: 0.75rem;
+  padding: 0.22rem 0.6rem;
+  border-radius: 999px;
+  background: rgba(99,102,241,0.15);
+  color: #c7d2fe;
+  border: 1px solid rgba(99,102,241,0.25);
+  font-weight: 600;
+}
+
+.meal-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.35rem;
+  margin-top: 0.2rem;
+}
+
+.tag-badge {
+  font-size: 0.68rem;
+  padding: 0.15rem 0.45rem;
+  border-radius: 999px;
+  background: rgba(244,114,182,0.12);
+  color: #f472b6;
+  border: 1px solid rgba(244,114,182,0.25);
+}
+
+.ai-summary-bar {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.9rem;
+  padding: 0.9rem 1.2rem;
+  background: rgba(99,102,241,0.10);
+  border-radius: 0.75rem;
+  border: 1px solid rgba(99,102,241,0.20);
+  margin-bottom: 1.2rem;
+  font-size: 0.87rem;
+  color: #c7d2fe;
+}
+.ai-summary-bar b { color: #e2e8f0; }
+
+.ai-meals-container.hidden { display: none; }
+
+/* ================================================================
+   SEARCH BOX – Food Lookup
+   ================================================================ */
+
+.search-box {
+  margin: 1rem 0 0.5rem;
+}
+
+.search-box input {
+  width: 100%;
+  padding: 0.85rem 1.2rem;
+  border-radius: 0.75rem;
+  border: 1px solid rgba(255,255,255,0.15);
+  background: rgba(255,255,255,0.07);
+  color: #f1f5f9;
+  font-size: 0.97rem;
+  outline: none;
+  box-sizing: border-box;
+  transition: border-color 0.2s, box-shadow 0.2s;
+}
+.search-box input::placeholder { color: #64748b; }
+.search-box input:focus {
+  border-color: rgba(99,102,241,0.55);
+  box-shadow: 0 0 0 3px rgba(99,102,241,0.15);
+}
